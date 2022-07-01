@@ -9,7 +9,6 @@ func main() {
 	c, err := cli.New(
 		cli.WithCommandName("slackbuilder"),
 	)
-
 	if err != nil {
 		log.Fatal(err)
 	}

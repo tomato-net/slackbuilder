@@ -1,9 +1,16 @@
 package cli
 
-import "fmt"
+import (
+	"fmt"
+	"github.com/spf13/cobra"
+)
 
 type CLI struct {
 	commandName string `json:"command_name"`
+
+	description string `json:"description"`
+
+	cmd *cobra.Command `json:"cmd"`
 }
 
 func New(options ...Option) (*CLI, error) {
@@ -15,6 +22,8 @@ func New(options ...Option) (*CLI, error) {
 			return nil, err
 		}
 	}
+
+	//cli.cmd = command.New(cli.commandName, cli.description)
 
 	return cli, nil
 }
