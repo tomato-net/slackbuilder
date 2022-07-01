@@ -6,6 +6,7 @@ func New(name, description string) *cobra.Command {
 	cmd := NewRoot(name, description)
 
 	cmd.AddCommand(
+		NewInit(),
 		NewCreate(),
 	)
 
