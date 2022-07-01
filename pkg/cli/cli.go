@@ -1,8 +1,8 @@
 package cli
 
 import (
-	"fmt"
 	"github.com/spf13/cobra"
+	"github.com/tomato-net/slackbuilder/pkg/cli/command"
 )
 
 type CLI struct {
@@ -23,13 +23,11 @@ func New(options ...Option) (*CLI, error) {
 		}
 	}
 
-	//cli.cmd = command.New(cli.commandName, cli.description)
+	cli.cmd = command.New(cli.commandName, cli.description)
 
 	return cli, nil
 }
 
 func (c *CLI) Run() error {
-	fmt.Printf("welcome to %s!\n", c.commandName)
-
-	return nil
+	return c.cmd.Execute()
 }
